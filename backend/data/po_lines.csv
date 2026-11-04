@@ -1,0 +1,25 @@
+po_number,line_no,sku,description,quantity,unit_price
+PO-2026-1001,1,OFF-PAPER-A4,Copy paper A4 80gsm (box of 5 reams),40,32.50
+PO-2026-1001,2,OFF-TONER-58A,HP 58A black toner cartridge,12,89.00
+PO-2026-1001,3,OFF-CHAIR-ERG,Ergonomic mesh office chair,6,245.00
+PO-2026-1002,1,IT-LAPTOP-SVC,Laptop setup and imaging,25,45.00
+PO-2026-1002,2,IT-SUPPORT-HRS,On-site IT support (hours),40,95.00
+PO-2026-1003,1,SIP-BRG-6204,Ball bearing 6204-2RS,500,4.80
+PO-2026-1003,2,SIP-BELT-B48,V-belt B48,200,12.50
+PO-2026-1003,3,SIP-SEAL-K12,Hydraulic seal kit K12,100,51.00
+PO-2026-1004,1,CN-VM-STD,Standard VM instance (per month),144,140.00
+PO-2026-1004,2,CN-STOR-TB,Block storage per TB (per month),96,45.00
+PO-2026-1004,3,CN-SUP-PRM,Premium support plan (per month),12,450.00
+PO-2026-1005,1,GL-CLEAN-MO,Office cleaning service - October,1,3200.00
+PO-2026-1005,2,GL-HVAC-PM,HVAC preventive maintenance,1,1450.00
+PO-2026-1005,3,GL-WASTE,Waste and recycling collection - October,1,380.00
+PO-2026-1006,1,AX-FTL-CHI-DAL,Full truckload Chicago IL to Dallas TX,3,2150.00
+PO-2026-1006,2,AX-LIFTGATE,Liftgate delivery surcharge,3,125.00
+PO-2026-1006,3,AX-FUEL,Fuel surcharge,3,180.00
+PO-2026-1007,1,AX-LTL-NYC-BOS,LTL shipment New York NY to Boston MA,10,420.00
+PO-2026-1007,2,AX-INS,Cargo insurance,10,35.00
+PO-2026-1008,1,QP-BANNER-3X8,Vinyl trade show banner 3x8 ft,20,85.00
+PO-2026-1009,1,MCG-ADVISORY,Process advisory (hours),80,220.00
+PO-2026-0950,1,OFF-PAPER-A4,Copy paper A4 80gsm (box of 5 reams),30,31.00
+PO-2026-1010,1,MON-27Q,27-inch QHD monitor,10,189.00
+PO-2026-1010,2,DOCK-USBC,USB-C docking station,10,129.00

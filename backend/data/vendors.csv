@@ -1,0 +1,9 @@
+vendor_id,legal_name,aliases,tax_id,country,currency,bank_name,bank_account,routing_number,status,status_reason,payment_terms_days,contact_email,contact_phone
+V001,Northwind Office Supplies Inc.,Northwind Office Supplies|Northwind Supplies,84-2291047,US,USD,Chase Bank,441700219934,021000021,approved,,30,billing@northwind-supplies.com,+1 312 555 0141
+V002,Brightline IT Services LLC,Brightline IT|Brightline Services,27-5530918,US,USD,Wells Fargo,662011884471,121000248,approved,,30,ar@brightline-it.com,+1 415 555 0188
+V003,Summit Industrial Parts Co.,Summit Industrial|Summit Parts,46-8810273,US,USD,Bank of America,330177452280,026009593,approved,,45,invoices@summitparts.com,+1 216 555 0172
+V004,CloudNest Hosting Ltd.,CloudNest|CloudNest Hosting,61-3392018,US,USD,Citibank,990233410076,021000089,approved,,15,billing@cloudnest.io,+1 206 555 0110
+V005,Greenleaf Facilities Management LLC,Greenleaf Facilities|Greenleaf FM,38-7720144,US,USD,U.S. Bank,155066239081,091000022,approved,,30,accounts@greenleaf-fm.com,+1 612 555 0193
+V006,Apex Logistics Corp.,Apex Logistics|Apex Freight,52-1187309,CA,USD,PNC Bank,778122095536,043000096,approved,,30,ar@apexlogistics.ca,+1 416 555 0127
+V007,Quantum Print & Signage Inc.,Quantum Print|Quantum Signage,91-4402871,US,USD,TD Bank,223488901123,031101266,blocked,Failed compliance review on 2026-09-14 (insurance certificate lapsed),30,billing@quantumprint.com,+1 973 555 0155
+V008,Meridian Consulting Group,Meridian Consulting,20-6618823,US,USD,Capital One,551200987765,051405515,approved,,30,finance@meridiancg.com,+1 202 555 0163

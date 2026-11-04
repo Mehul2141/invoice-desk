@@ -1,0 +1,11 @@
+.tools/
+backend/.venv/
+backend/.env
+backend/storage/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.DS_Store
+.claude/
+PLAN.md
+*.pyc

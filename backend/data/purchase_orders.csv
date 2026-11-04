@@ -1,0 +1,12 @@
+po_number,vendor_id,issue_date,status,currency,match_type,description,buyer
+PO-2026-1001,V001,2026-10-01,open,USD,3-way,Q4 office supplies replenishment,Facilities - Dana Ortiz
+PO-2026-1002,V002,2026-09-22,open,USD,2-way,New-hire laptop setup and on-site IT support,IT - Sam Patel
+PO-2026-1003,V003,2026-09-15,open,USD,3-way,Maintenance spares for Line 3,Plant Ops - Rui Costa
+PO-2026-1004,V004,2026-01-05,open,USD,2-way,2026 hosting blanket PO (12 months),Engineering - Lena Fischer
+PO-2026-1005,V005,2026-10-01,open,USD,2-way,October facilities services,Facilities - Dana Ortiz
+PO-2026-1006,V006,2026-10-08,open,USD,2-way,Outbound FTL freight Chicago to Dallas (3 loads),Supply Chain - Omar Haddad
+PO-2026-1007,V006,2026-10-15,open,USD,2-way,LTL shipments New York to Boston,Supply Chain - Omar Haddad
+PO-2026-1008,V007,2026-08-30,open,USD,3-way,Trade show banners,Marketing - Priya Nair
+PO-2026-1009,V008,2026-09-01,open,USD,2-way,Procure-to-pay process advisory,Finance - Alex Kim
+PO-2026-1010,V001,2026-10-12,open,USD,3-way,IT peripherals for new hires,IT - Sam Patel
+PO-2026-0950,V001,2026-07-02,closed,USD,3-way,Q3 office supplies,Facilities - Dana Ortiz

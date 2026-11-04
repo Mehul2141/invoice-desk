@@ -1,0 +1,540 @@
+[
+  {
+    "file": "01_happy_northwind.pdf",
+    "title": "Happy path \u2014 clean invoice, explicit PO",
+    "scenario": "happy_path",
+    "expected": "APPROVE",
+    "description": "Northwind office supplies. Clean text PDF, PO number in header, every line matches the PO, sales tax separated.",
+    "scanned": false,
+    "sha256": "b3e021ada9fd7e0635053999132d25f8c685c1747abb6cf7b87ddae4121355f0",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Northwind Office Supplies Inc.",
+      "vendor_address": "455 W Fulton Market, Chicago, IL 60661",
+      "vendor_tax_id": "84-2291047",
+      "vendor_email": "billing@northwind-supplies.com",
+      "invoice_number": "INV-NW-5512",
+      "invoice_date": "2026-10-20",
+      "due_date": "2026-11-19",
+      "currency": "USD",
+      "po_reference": "PO-2026-1001",
+      "line_items": [
+        {
+          "sku": "OFF-PAPER-A4",
+          "description": "Copy paper A4 80gsm (box of 5 reams)",
+          "quantity": 40,
+          "unit_price": 32.5,
+          "amount": 1300.0
+        },
+        {
+          "sku": "OFF-TONER-58A",
+          "description": "HP 58A black toner cartridge",
+          "quantity": 12,
+          "unit_price": 89.0,
+          "amount": 1068.0
+        },
+        {
+          "sku": "OFF-CHAIR-ERG",
+          "description": "Ergonomic mesh office chair",
+          "quantity": 6,
+          "unit_price": 245.0,
+          "amount": 1470.0
+        }
+      ],
+      "subtotal": 3838.0,
+      "tax_amount": 316.63,
+      "tax_rate": 0.0825,
+      "tax_inclusive": false,
+      "total": 4154.63,
+      "bank_name": "Chase Bank",
+      "bank_account": "441700219934",
+      "routing_number": "021000021",
+      "payment_terms": "Net 30",
+      "notes": "Thank you for your business.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  },
+  {
+    "file": "02_variance_brightline.pdf",
+    "title": "Price variance inside tolerance",
+    "scenario": "variance_in_tolerance",
+    "expected": "APPROVE",
+    "description": "Brightline IT. PO reference only appears in the notes. Support hours billed at $96.50 vs $95.00 on the PO (+1.6%) \u2014 inside the 2% tolerance, approved with a note.",
+    "scanned": false,
+    "sha256": "c6a2bba28082357763e9288bc35fd17280b43cc8d659b0188b0a997e57ec7324",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Brightline IT Services LLC",
+      "vendor_address": "88 Mission Street, Suite 400, San Francisco, CA 94105",
+      "vendor_tax_id": "27-5530918",
+      "vendor_email": "ar@brightline-it.com",
+      "invoice_number": "BL-2026-0318",
+      "invoice_date": "2026-10-24",
+      "due_date": "2026-11-23",
+      "currency": "USD",
+      "po_reference": "PO-2026-1002",
+      "line_items": [
+        {
+          "sku": "IT-LAPTOP-SVC",
+          "description": "Laptop setup and imaging",
+          "quantity": 25,
+          "unit_price": 45.0,
+          "amount": 1125.0
+        },
+        {
+          "sku": "IT-SUPPORT-HRS",
+          "description": "On-site IT support (hours)",
+          "quantity": 40,
+          "unit_price": 96.5,
+          "amount": 3860.0
+        }
+      ],
+      "subtotal": 4985.0,
+      "tax_amount": 0.0,
+      "tax_rate": 0.0,
+      "tax_inclusive": false,
+      "total": 4985.0,
+      "bank_name": "Wells Fargo",
+      "bank_account": "662011884471",
+      "routing_number": "121000248",
+      "payment_terms": "Net 30",
+      "notes": "Services rendered per your purchase order 2026-1002.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  },
+  {
+    "file": "03_split_summit_part1.pdf",
+    "title": "Edge case 1a \u2014 split invoice, first part",
+    "scenario": "split_po_part1",
+    "expected": "APPROVE",
+    "description": "Summit Industrial bills part of PO-2026-1003 (bearings, belts, 20 of 100 seal kits). Partial billing is fine \u2014 approved, PO balance tracked.",
+    "scanned": false,
+    "sha256": "a793a9e7f091977866964a818748188fde42aac23da10852f9c1fbbd75ca72a9",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Summit Industrial Parts Co.",
+      "vendor_address": "3100 Carnegie Ave, Cleveland, OH 44115",
+      "vendor_tax_id": "46-8810273",
+      "vendor_email": "invoices@summitparts.com",
+      "invoice_number": "SIP-88412",
+      "invoice_date": "2026-10-10",
+      "due_date": "2026-11-24",
+      "currency": "USD",
+      "po_reference": "PO-2026-1003",
+      "line_items": [
+        {
+          "sku": "SIP-BRG-6204",
+          "description": "Ball bearing 6204-2RS",
+          "quantity": 500,
+          "unit_price": 4.8,
+          "amount": 2400.0
+        },
+        {
+          "sku": "SIP-BELT-B48",
+          "description": "V-belt B48",
+          "quantity": 200,
+          "unit_price": 12.5,
+          "amount": 2500.0
+        },
+        {
+          "sku": "SIP-SEAL-K12",
+          "description": "Hydraulic seal kit K12",
+          "quantity": 20,
+          "unit_price": 51.0,
+          "amount": 1020.0
+        }
+      ],
+      "subtotal": 5920.0,
+      "tax_amount": 414.4,
+      "tax_rate": 0.07,
+      "tax_inclusive": false,
+      "total": 6334.4,
+      "bank_name": "Bank of America",
+      "bank_account": "330177452280",
+      "routing_number": "026009593",
+      "payment_terms": "Net 45",
+      "notes": "Partial shipment 1 of 2.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  },
+  {
+    "file": "04_split_summit_part2.pdf",
+    "title": "Edge case 1b \u2014 split invoice over-bills the PO",
+    "scenario": "split_po_overbill",
+    "expected": "HOLD",
+    "description": "Second Summit invoice bills all 100 seal kits again. Run 1a first: cumulative billing would be 120 of 100 kits and $1,020 over the PO \u2014 held for review.",
+    "scanned": false,
+    "sha256": "26264982e7bfd6245f8dd85f4394bd2f24eb8950e6dc44bc6cde1f6c98b257fa",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Summit Industrial Parts Co.",
+      "vendor_address": "3100 Carnegie Ave, Cleveland, OH 44115",
+      "vendor_tax_id": "46-8810273",
+      "vendor_email": "invoices@summitparts.com",
+      "invoice_number": "SIP-88497",
+      "invoice_date": "2026-10-27",
+      "due_date": "2026-12-11",
+      "currency": "USD",
+      "po_reference": "PO-2026-1003",
+      "line_items": [
+        {
+          "sku": "SIP-SEAL-K12",
+          "description": "Hydraulic seal kit K12",
+          "quantity": 100,
+          "unit_price": 51.0,
+          "amount": 5100.0
+        }
+      ],
+      "subtotal": 5100.0,
+      "tax_amount": 357.0,
+      "tax_rate": 0.07,
+      "tax_inclusive": false,
+      "total": 5457.0,
+      "bank_name": "Bank of America",
+      "bank_account": "330177452280",
+      "routing_number": "026009593",
+      "payment_terms": "Net 45",
+      "notes": "Final shipment 2 of 2.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  },
+  {
+    "file": "05_duplicate_cloudnest_rescan.pdf",
+    "title": "Edge case 2 \u2014 near-duplicate resubmission (scanned)",
+    "scenario": "near_duplicate",
+    "expected": "REJECT",
+    "description": "CloudNest re-sends their October invoice as a scan with the number written 'CN-42' instead of 'INV-CN-0042'. Different file, different number format \u2014 same invoice, already paid on 2026-10-12.",
+    "scanned": true,
+    "sha256": "ecf1fbad2841c3d49c76e63b3142a4fbc9fa1761a5519f66e3fc8440fc7423b5",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "CloudNest Hosting Ltd.",
+      "vendor_address": "1501 4th Avenue, Seattle, WA 98101",
+      "vendor_tax_id": "61-3392018",
+      "vendor_email": "billing@cloudnest.io",
+      "invoice_number": "CN-42",
+      "invoice_date": "2026-10-05",
+      "due_date": "2026-10-20",
+      "currency": "USD",
+      "po_reference": "PO-2026-1004",
+      "line_items": [
+        {
+          "sku": "CN-VM-STD",
+          "description": "Standard VM instance (per month)",
+          "quantity": 12,
+          "unit_price": 140.0,
+          "amount": 1680.0
+        },
+        {
+          "sku": "CN-STOR-TB",
+          "description": "Block storage per TB (per month)",
+          "quantity": 8,
+          "unit_price": 45.0,
+          "amount": 360.0
+        },
+        {
+          "sku": "CN-SUP-PRM",
+          "description": "Premium support plan (per month)",
+          "quantity": 1,
+          "unit_price": 450.0,
+          "amount": 450.0
+        }
+      ],
+      "subtotal": 2490.0,
+      "tax_amount": 0.0,
+      "tax_rate": 0.0,
+      "tax_inclusive": false,
+      "total": 2490.0,
+      "bank_name": "Citibank",
+      "bank_account": "990233410076",
+      "routing_number": "021000089",
+      "payment_terms": "Net 15",
+      "notes": "PAYMENT REMINDER - please remit at your earliest convenience.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": [
+        "Document is a scanned image; text read visually."
+      ]
+    }
+  },
+  {
+    "file": "06_bank_change_greenleaf.pdf",
+    "title": "Edge case 3 \u2014 bank details changed (fraud signal)",
+    "scenario": "bank_change",
+    "expected": "HOLD",
+    "description": "Greenleaf invoice matches its PO perfectly, but the remit-to bank account is new and differs from the vendor master. Classic payment-diversion pattern \u2014 held for verification.",
+    "scanned": false,
+    "sha256": "c01173e95d212dfa3070f9f7cdce54430bb6b15799cd6d70bb84f42b25e695ce",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Greenleaf Facilities Management LLC",
+      "vendor_address": "700 Nicollet Mall, Minneapolis, MN 55402",
+      "vendor_tax_id": "38-7720144",
+      "vendor_email": "accounts@greenleaf-fm.com",
+      "invoice_number": "GLF-10-2291",
+      "invoice_date": "2026-10-28",
+      "due_date": "2026-11-27",
+      "currency": "USD",
+      "po_reference": "PO-2026-1005",
+      "line_items": [
+        {
+          "sku": "GL-CLEAN-MO",
+          "description": "Office cleaning service - October",
+          "quantity": 1,
+          "unit_price": 3200.0,
+          "amount": 3200.0
+        },
+        {
+          "sku": "GL-HVAC-PM",
+          "description": "HVAC preventive maintenance",
+          "quantity": 1,
+          "unit_price": 1450.0,
+          "amount": 1450.0
+        },
+        {
+          "sku": "GL-WASTE",
+          "description": "Waste and recycling collection - October",
+          "quantity": 1,
+          "unit_price": 380.0,
+          "amount": 380.0
+        }
+      ],
+      "subtotal": 5030.0,
+      "tax_amount": 0.0,
+      "tax_rate": 0.0,
+      "tax_inclusive": false,
+      "total": 5030.0,
+      "bank_name": "Metro Federal Credit Union",
+      "bank_account": "882011456603",
+      "routing_number": "271070801",
+      "payment_terms": "Net 30",
+      "notes": "IMPORTANT: We have changed banks. Please update your records and remit to the new account below effective immediately.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  },
+  {
+    "file": "07_scanned_apex_no_po.pdf",
+    "title": "Edge case 4 \u2014 scanned, no PO number, tax-inclusive",
+    "scenario": "inferred_po",
+    "expected": "APPROVE",
+    "description": "Apex Logistics scanned invoice. No PO reference anywhere and prices include 13% HST. The process backs out tax and infers PO-2026-1006 from vendor + lines + amount (the other open Apex PO is a decoy).",
+    "scanned": true,
+    "sha256": "535522e495f94bd5e3ff59f2df136bc04ee6fa07c6f73b4b118bba326ede5dea",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Apex Logistics Corp.",
+      "vendor_address": "200 Bay Street, Suite 1800, Toronto, ON M5J 2J2",
+      "vendor_tax_id": "52-1187309",
+      "vendor_email": "ar@apexlogistics.ca",
+      "invoice_number": "APX-77031",
+      "invoice_date": "2026-10-22",
+      "due_date": "2026-11-21",
+      "currency": "USD",
+      "po_reference": null,
+      "line_items": [
+        {
+          "sku": null,
+          "description": "FTL Chicago IL -> Dallas TX (loads)",
+          "quantity": 3,
+          "unit_price": 2429.5,
+          "amount": 7288.5
+        },
+        {
+          "sku": null,
+          "description": "Liftgate delivery",
+          "quantity": 3,
+          "unit_price": 141.25,
+          "amount": 423.75
+        },
+        {
+          "sku": null,
+          "description": "Fuel surcharge",
+          "quantity": 3,
+          "unit_price": 203.4,
+          "amount": 610.2
+        }
+      ],
+      "subtotal": null,
+      "tax_amount": 957.45,
+      "tax_rate": 0.13,
+      "tax_inclusive": true,
+      "total": 8322.45,
+      "bank_name": "PNC Bank",
+      "bank_account": "778122095536",
+      "routing_number": "043000096",
+      "payment_terms": "Net 30",
+      "notes": "All amounts include HST. Thank you for shipping with Apex.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.0,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": [
+        "Document is a scanned image; text read visually."
+      ]
+    }
+  },
+  {
+    "file": "08_blocked_vendor_quantum.pdf",
+    "title": "Blocked vendor",
+    "scenario": "blocked_vendor",
+    "expected": "REJECT",
+    "description": "Quantum Print is in the vendor master but blocked after a failed compliance review. Everything else is fine \u2014 rejected and routed to procurement.",
+    "scanned": false,
+    "sha256": "a95a694c67948b632ae47e1a9d56078d5d8c4fd2a930312ab4036418f38eeabd",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Quantum Print & Signage Inc.",
+      "vendor_address": "45 Market Street, Newark, NJ 07102",
+      "vendor_tax_id": "91-4402871",
+      "vendor_email": "billing@quantumprint.com",
+      "invoice_number": "QPS-3390",
+      "invoice_date": "2026-10-18",
+      "due_date": "2026-11-17",
+      "currency": "USD",
+      "po_reference": "PO-2026-1008",
+      "line_items": [
+        {
+          "sku": "QP-BANNER-3X8",
+          "description": "Vinyl trade show banner 3x8 ft",
+          "quantity": 20,
+          "unit_price": 85.0,
+          "amount": 1700.0
+        }
+      ],
+      "subtotal": 1700.0,
+      "tax_amount": 112.62,
+      "tax_rate": 0.06625,
+      "tax_inclusive": false,
+      "total": 1812.62,
+      "bank_name": "TD Bank",
+      "bank_account": "223488901123",
+      "routing_number": "031101266",
+      "payment_terms": "Net 30",
+      "notes": null,
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  },
+  {
+    "file": "09_receipt_short_northwind.pdf",
+    "title": "3-way match \u2014 billed more than received",
+    "scenario": "receipt_short",
+    "expected": "HOLD",
+    "description": "Northwind bills all 10 monitors on PO-2026-1010, but the warehouse goods receipt (GRN-7010) shows only 8 arrived. Matches the PO (2-way) but fails the 3-way match \u2014 held until the goods are received.",
+    "scanned": false,
+    "sha256": "1218beb1fc728d113b5ea1ca7ec4acaa2d89e4ea7b8aead1a5eb6f4e90b5a1c0",
+    "ground_truth": {
+      "is_invoice": true,
+      "vendor_name": "Northwind Office Supplies Inc.",
+      "vendor_address": "455 W Fulton Market, Chicago, IL 60661",
+      "vendor_tax_id": "84-2291047",
+      "vendor_email": "billing@northwind-supplies.com",
+      "invoice_number": "INV-NW-5561",
+      "invoice_date": "2026-10-29",
+      "due_date": "2026-11-28",
+      "currency": "USD",
+      "po_reference": "PO-2026-1010",
+      "line_items": [
+        {
+          "sku": "MON-27Q",
+          "description": "27-inch QHD monitor",
+          "quantity": 10,
+          "unit_price": 189.0,
+          "amount": 1890.0
+        },
+        {
+          "sku": "DOCK-USBC",
+          "description": "USB-C docking station",
+          "quantity": 10,
+          "unit_price": 129.0,
+          "amount": 1290.0
+        }
+      ],
+      "subtotal": 3180.0,
+      "tax_amount": 262.35,
+      "tax_rate": 0.0825,
+      "tax_inclusive": false,
+      "total": 3442.35,
+      "bank_name": "Chase Bank",
+      "bank_account": "441700219934",
+      "routing_number": "021000021",
+      "payment_terms": "Net 30",
+      "notes": "Thank you for your business.",
+      "field_confidence": {
+        "vendor_name": 0.98,
+        "invoice_number": 0.97,
+        "invoice_date": 0.97,
+        "po_reference": 0.95,
+        "line_items": 0.95,
+        "total": 0.98,
+        "bank_account": 0.95
+      },
+      "extraction_warnings": []
+    }
+  }
+]
